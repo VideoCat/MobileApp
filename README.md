@@ -1,1 +1,1 @@
-Leaning aoubt MobileApps and how to program teh best methods.
+Leaning about MobileApps and how to program the best methods.
