@@ -5,6 +5,10 @@
     <meta name="viewport" content="width=device-width, inital-scale=1.0" />
     <meta name="apple-mobile-web-app-capable" content="yes" />
     <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black" />
     <script>
       var light = new Array();
       var t;
@@ -42,8 +46,41 @@
         flipping = 0;
       }
     </script>
+    <style>
+      body {
+        font-family: arial, helvetica;
+        text-align: center;
+      }
+      #directions,
+      #flashlight,
+      #danceparty {
+        margin: 4px;
+      }
+      ol {
+        display: inline-block;
+        margin: 0 auto;
+        text-align: left;
+      }
+      .bigButton {
+        font-size: 18px;
+      }
+    </style>
   </head>
   <body>
+    <h1>WatzThis?</h1>
+    <div id="directions">
+      <ol>
+        <li>
+          Use the top row of buttons to turn the flashlight on or off, or to
+          make the light red.
+        </li>
+        <li>
+          Use the 2nd row of buttons to turn on and off your automatic flashing
+          color light dance party.
+        </li>
+      </ol>
+    </div>
+
     <div id="container">
       <div id="flashlight">
         <input
