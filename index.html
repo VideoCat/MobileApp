@@ -14,13 +14,21 @@
       var t;
       var color = 0;
       var flipping = 0;
-      var speed;
+      var speed = 500;
+      const minSpeed = 10;
+      const maxSpeed = 5000;
       light[0] = "black";
       light[1] = "white";
       light[2] = "red";
       light[3] = "blue";
       light[4] = "green";
       light[5] = "orange";
+      light[6] = "magenta";
+      light[7] = "orchid";
+      light[8] = "silver";
+      light[9] = "coral";
+      light[10] = "charteuse";
+      light[11] = "turquoise";
       function flip(whichway) {
         document.body.style.backgroundColor = light[whichway];
         stopFlip();
@@ -32,6 +40,13 @@
         } else {
           color = 0;
         }
+        if (speed < minSpeed) {
+          speed = minSpeed;
+        }
+        if (speed > maxSpeed) {
+          speed = maxSpeed;
+        }
+        document.getElementById("subHeading").innerHTML = "speed = " + speed;
         t = setTimeout("autoFlip()", speed);
       }
       function doAutoFlip(changespeed) {
@@ -44,6 +59,24 @@
       function stopFlip() {
         clearTimeout(t);
         flipping = 0;
+      }
+      function increase(changespeed) {
+        speed = changespeed + 20;
+        if (speed > maxSpeed) {
+          speed = maxSpeed;
+        }
+        if (flipping == 1) {
+          doAutoFlip(speed);
+        }
+      }
+      function decrease(changespeed) {
+        speed = changespeed - 20;
+        if (speed < minSpeed) {
+          speed = minSpeed;
+        }
+        if (flipping == 1) {
+          doAutoFlip(speed);
+        }
       }
     </script>
     <style>
@@ -67,7 +100,8 @@
     </style>
   </head>
   <body>
-    <h1>WatzThis?</h1>
+    <h1 id="heading">WatzThis?</h1>
+    <h2 id="subHeading"></h2>
     <div id="directions">
       <ol>
         <li>
@@ -77,6 +111,17 @@
         <li>
           Use the 2nd row of buttons to turn on and off your automatic flashing
           color light dance party.
+        </li>
+        <li>
+          Increase button increases the time between color changes by 20 msec.
+          maximum = 10,000 msec
+        </li>
+        <li>
+          Decrease button decreases the time between color changes by 20 msec.
+          minimum = 10 msec
+        </li>
+        <li>
+          Reset Speed button resets the time between color changes to 500 msec.
         </li>
       </ol>
     </div>
@@ -111,7 +156,7 @@
           id="AUTO"
           class="bigButton"
           value="AUTO"
-          onclick="doAutoFlip(500);"
+          onclick="doAutoFlip(speed);"
         />
         <input
           type="button"
@@ -119,6 +164,27 @@
           class="bigButton"
           value="STOP"
           onclick="stopFlip();"
+        />
+        <input
+          type="button"
+          id="Increase"
+          class="bigButton"
+          value="Increase"
+          onClick="increase(speed);"
+        />
+        <input
+          type="button"
+          id="Decrease"
+          class="bigButton"
+          value="Decrease"
+          onclick="decrease(speed);"
+        />
+        <input
+          type="button"
+          id="Reset Speed"
+          class="bigButton"
+          value="Reset Speed"
+          onclick="doAutoFlip(speed=500);"
         />
       </div>
     </div>
