@@ -46,7 +46,8 @@
         if (speed > maxSpeed) {
           speed = maxSpeed;
         }
-        document.getElementById("subHeading").innerHTML = "speed = " + speed;
+        document.getElementById("subHeading").innerHTML =
+          "speed = " + speed + " msec";
         t = setTimeout("autoFlip()", speed);
       }
       function doAutoFlip(changespeed) {
